@@ -1,0 +1,27 @@
+{
+  "selected_by": "claude-inspected-pending-team-confirmation",
+  "method": "track id 1 chosen after inspecting preview",
+  "chain": [
+    {
+      "track_id": 1,
+      "from_s": 16.0
+    }
+  ],
+  "status_counts": {
+    "tracked": 498,
+    "lost": 2
+  },
+  "tracked_fraction_after_selection": 0.996,
+  "lost_intervals_s": [
+    [
+      28.68,
+      28.68
+    ],
+    [
+      35.64,
+      35.64
+    ]
+  ],
+  "suggested_links_unconfirmed": [],
+  "note": "Track ids are tracker guesses; inspect overlay_selected.mp4 for identity switches."
+}

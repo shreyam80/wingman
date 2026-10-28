@@ -1,0 +1,13 @@
+[project]
+name = "wingman"
+version = "0.1.0"
+description = "Wingman laptop demo: climber pose tracking and pause bookmarks"
+requires-python = ">=3.11,<3.12"
+dependencies = ["ultralytics==8.4.191", "opencv-python", "numpy", "pandas", "lap", "pyyaml"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
