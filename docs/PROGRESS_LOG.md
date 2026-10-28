@@ -6,7 +6,7 @@ Status words: **planned** (written down only) · **implemented** (code exists) �
 ## 2026-10-28 – Milestone 1: environment and sample  ✅ verified
 
 - Laptop: macOS 26.3.1, Apple M3 Pro, 18 GB RAM, **~30 GB free disk (94% full)**.
-  Python 3.11.7 isolated env via uv in `~/wingman/.venv`.
+  Python 3.11.7 isolated env via uv in `.venv` (project moved from ~/wingman to ~/CIS Senior Design Docs/wingman; env rebuilt there, checks re-passed 15/15).
 - Versions: ultralytics 8.4.191, torch 2.14.1 (MPS GPU available), opencv 5.0.0,
   numpy 2.4.6. Full pin: `requirements.lock.txt`.
 - Dataset already extracted at `~/Downloads/wingman dataset` (20 GB, unmodified).

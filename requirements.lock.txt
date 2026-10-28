@@ -41,4 +41,3 @@ ultralytics==8.4.191
 ultralytics-platform==0.1.100
 ultralytics-thop==2.2.3
 urllib3==2.8.0
--e file:///Users/shreyasmacbookpro2/wingman

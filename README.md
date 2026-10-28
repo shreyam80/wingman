@@ -7,7 +7,7 @@ No model is trained here; we run official pretrained weights.
 ## Setup (macOS, Apple Silicon; tested on M3 Pro, 18 GB)
 
 ```bash
-cd ~/wingman
+cd ~/"CIS Senior Design Docs/wingman"
 uv venv --python 3.11 .venv
 uv pip install --python .venv/bin/python -r requirements.lock.txt
 uv pip install --python .venv/bin/python -e .

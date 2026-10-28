@@ -6,7 +6,7 @@ Everything here only reads the original videos; nothing in Downloads is changed.
 ## Part 0 – Get into the project
 
 ```bash
-cd ~/wingman
+cd ~/"CIS Senior Design Docs/wingman"
 source .venv/bin/activate
 ```
 `source .venv/bin/activate` switches your terminal to this project's private Python,
