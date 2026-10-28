@@ -54,7 +54,7 @@ of the route, pause detection, or accuracy of joint positions (no joint ground t
   FAIL ("never another person") + WARN (torso jump at 28.00 s).
 - `docs/WALKTHROUGH.md`: step-by-step guide for the team to reproduce and test.
 - `docs/FILE_GUIDE.md`: plain-language explanation of every file and design decision.
-- Project put under git (.gitignore excludes .venv, model weights, output videos/images).
+- Project put under git (.gitignore excludes .venv, model weights, output videos/images) and pushed to private GitHub repo https://github.com/shreyam80/wingman.
 
 ## Next (planned)
 - Run yolo11s on two more p1 excerpts: a pause section and the top of the route
