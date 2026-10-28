@@ -115,16 +115,20 @@ def intervals(sel, status):
 
 
 def suggest_links(det, sel, chain_ids, window_s=3.0):
-    """For each loss, list new track ids that start soon after and overlap the last box."""
+    """For each loss, list other track ids seen soon after it starts, with their overlap
+    with the climber's last box. Includes ids that began *before* the loss (a duplicate
+    box that takes over when the original id ends) - we saw this on real footage."""
     tips = []
+    tracked_det = det[det.track_id >= 0]
     for a, b in intervals(sel, "lost"):
         last = sel[(sel.t_s < a) & (sel.status == "tracked")].tail(1)
         if last.empty:
             continue
         lb = last.iloc[0][["x1", "y1", "x2", "y2"]].astype(float).values
-        firsts = det[det.track_id >= 0].groupby("track_id").t_s.min()
-        for tid, t0 in firsts.items():
-            if tid in chain_ids or not (a - 0.1 <= t0 <= b + window_s):
+        # first appearance of each other id at or after the loss began
+        after = tracked_det[tracked_det.t_s >= a - 1e-6].groupby("track_id").t_s.min()
+        for tid, t0 in after.items():
+            if tid in chain_ids or t0 > a + window_s:
                 continue
             r = det[(det.track_id == tid) & (det.t_s == t0)].iloc[0]
             bb = np.array([r.x1, r.y1, r.x2, r.y2], dtype=float)

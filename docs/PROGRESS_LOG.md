@@ -54,7 +54,15 @@ of the route, pause detection, or accuracy of joint positions (no joint ground t
   FAIL ("never another person") + WARN (torso jump at 28.00 s).
 - `docs/WALKTHROUGH.md`: step-by-step guide for the team to reproduce and test.
 - `docs/FILE_GUIDE.md`: plain-language explanation of every file and design decision.
+- `docs/CODE_WALKTHROUGH.md`: line-by-line code walkthrough with real output rows.
 - Project put under git (.gitignore excludes .venv, model weights, output videos/images) and pushed to private GitHub repo https://github.com/shreyam80/wingman.
+
+## 2026-10-28 – Full p1 orange video  ✅ run + verified
+- yolo11s, imgsz 640: climber received 5 track IDs (1→3→11→15→17) after >1.2 s misses near the top; 247 frames with no detection; top-section coverage 71.9%.
+- yolo11s, imgsz 960 (18.6 ms/frame, 1.75× real time): climber keeps track 1 for the whole climb, 97.6% tracked, longest loss 0.7 s (77.8–78.5 s). Bystanders (IDs 3, 8, 13, bottom right) now detected and correctly not linked (overlap 0.0). 15/15 checks pass.
+- **Decision: imgsz 960** becomes the default setting for our runs.
+- Fixed suggest_links: it now finds a duplicate box that began before the climber's ID ended.
+- Observed failure: left/right joint swap near the top (86 s).
 
 ## Next (planned)
 - Run yolo11s on two more p1 excerpts: a pause section and the top of the route

@@ -1,0 +1,65 @@
+{
+  "video": "/Users/shreyasmacbookpro2/Downloads/wingman dataset/p1/orange.mp4",
+  "video_info": {
+    "width": 720,
+    "height": 1280,
+    "fps": 25.0,
+    "frame_count": 2213,
+    "duration_s": 88.52
+  },
+  "excerpt": {
+    "start_s": 0.0,
+    "end_s": null,
+    "start_frame": 0,
+    "end_frame_exclusive": 2213,
+    "frames_processed": 2213
+  },
+  "model": "yolo11s-pose.pt",
+  "imgsz": 960,
+  "box_conf_min": 0.25,
+  "device": "mps",
+  "tracker_file": "../configs/bytetrack.yaml",
+  "tracker_settings": {
+    "tracker_type": "bytetrack",
+    "track_high_thresh": 0.25,
+    "track_low_thresh": 0.1,
+    "new_track_thresh": 0.25,
+    "track_buffer": 30,
+    "match_thresh": 0.8,
+    "fuse_score": true
+  },
+  "versions": {
+    "ultralytics": "8.4.191",
+    "torch": "2.14.1",
+    "opencv": "5.0.0",
+    "python": "3.11.7"
+  },
+  "machine": {
+    "platform": "macOS-26.3.1-arm64-arm-64bit",
+    "processor": "arm"
+  },
+  "keypoint_order": [
+    "nose",
+    "left_eye",
+    "right_eye",
+    "left_ear",
+    "right_ear",
+    "left_shoulder",
+    "right_shoulder",
+    "left_elbow",
+    "right_elbow",
+    "left_wrist",
+    "right_wrist",
+    "left_hip",
+    "right_hip",
+    "left_knee",
+    "right_knee",
+    "left_ankle",
+    "right_ankle"
+  ],
+  "coordinates": "pixels in the source video frame; (0,0) top-left",
+  "overlay_codec": "avc1",
+  "runtime_s": 50.51,
+  "processing_fps": 43.82,
+  "realtime_factor": 1.75
+}

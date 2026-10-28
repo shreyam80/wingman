@@ -1,0 +1,104 @@
+{
+  "selected_by": "claude-inspected; user confirmed track 1 is climber on 16-36s excerpt",
+  "method": "track id 1 chosen after inspecting preview",
+  "chain": [
+    {
+      "track_id": 1,
+      "from_s": 0.0
+    }
+  ],
+  "status_counts": {
+    "tracked": 2159,
+    "lost": 54
+  },
+  "tracked_fraction_after_selection": 0.9756,
+  "lost_intervals_s": [
+    [
+      61.64,
+      61.76
+    ],
+    [
+      67.2,
+      67.36
+    ],
+    [
+      67.6,
+      67.72
+    ],
+    [
+      70.48,
+      70.48
+    ],
+    [
+      77.2,
+      77.64
+    ],
+    [
+      77.8,
+      78.48
+    ],
+    [
+      80.12,
+      80.12
+    ],
+    [
+      80.24,
+      80.28
+    ],
+    [
+      80.56,
+      80.64
+    ],
+    [
+      83.08,
+      83.12
+    ],
+    [
+      85.32,
+      85.32
+    ],
+    [
+      85.96,
+      85.96
+    ]
+  ],
+  "suggested_links_unconfirmed": [
+    {
+      "lost_from_s": 61.64,
+      "candidate_id": 8,
+      "appears_s": 61.64,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 67.2,
+      "candidate_id": 8,
+      "appears_s": 67.2,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 67.6,
+      "candidate_id": 8,
+      "appears_s": 67.6,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 83.08,
+      "candidate_id": 13,
+      "appears_s": 85.32,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 85.32,
+      "candidate_id": 13,
+      "appears_s": 85.32,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 85.96,
+      "candidate_id": 13,
+      "appears_s": 85.96,
+      "iou_with_last_box": 0.0
+    }
+  ],
+  "note": "Track ids are tracker guesses; inspect overlay_selected.mp4 for identity switches."
+}
