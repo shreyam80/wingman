@@ -131,6 +131,40 @@ top reference points reversed in most 4-point files; `geometry.WallMap` refits r
   brief detector misses caused it to stop and request the pilot in half the climbs."
   Not supported: real-flight performance, Jetson speed, PX4 behaviour.
 
+## 2026-11-23 – Follower experiments; hybrid becomes the default  ✅ run (simulation only)
+Added: sharpness ratio per simulated picture (realistic if >= 0.75 of needed detail),
+"wrong way" measure, `--set` overrides, tap-select start, hybrid follower
+(`follow/hybrid.py`: OpenCV VitTrack single-object tracker every check, person detector
+confirmation every 3rd check, same hold/re-lock safety rules). 15 tests pass.
+Tuning/experiments on development climbers p1, p3, p5 only (6 videos):
+
+| Setup (dev) | Worst fully-in-frame | Pilot stops (sharp) | Brief losses | Wrong person | ms/check (Mac) |
+| --- | --- | --- | --- | --- | --- |
+| detector, 10/s | 91.0% | 4 (2) | 90 | 0 | 12 |
+| detector, 2/s / 3/s / 5/s / 15/s | 89.5 / 88.8 / 95.7 / 89.6% | 6 / 6 / 4 / 4 | 58 / 74 / 88 / 132 | 0 | 12-13 |
+| detector imgsz 960 | 90.4% | 3 (1) | 74 | 0 | 46 |
+| yolo11s-pose as detector | 100% | 1 (1) | 69 | 0 | 20 |
+| re-lock window 4 s | 91.0% | 4 (2) | 95 | 0 | 18 |
+| hybrid, detect every 3rd | 95.7% | 1 (0) | 6 | 0 | 5 |
+
+Minimum loop rate: ~5 checks/s (below that pilot stops rise).
+Held-out check (16 videos, 17.1 min, not used for these choices; p4_orange was used once
+earlier for the detector/conf change):
+
+| Held-out | Pilot stops | Brief losses | Worst partly out of frame | Wrong person | ms/check |
+| --- | --- | --- | --- | --- | --- |
+| detector (previous default) | 7 | 146 | 7.6% | 0 | 17 |
+| **hybrid, detect every 3rd (new default)** | **1** | **9** | **0%** | **0** | **5** |
+| yolo11s-pose as detector | 2 | 105 | 0% | 0 | 20 |
+
+p2a_green stays at 79% fully in frame for every setup: the climber moves ~1.1 m sideways
+and elevator mode only moves up/down (limit of the mode, not the follower).
+What we can honestly say: "In simulation on 16 held-out dataset climbs, the hybrid
+follower reduced lock losses by ~94% and pilot stops from 7 to 1, never locked onto a
+bystander, and used about a third of the computation."
+Not supported: Jetson speed, real latency, real camera/lighting/blur, PX4 behaviour.
+Still guesses: controller gains, latency 0.15 s, lens field of view 70 deg.
+
 ## Next (planned)
 - Partner: analytics (torso pauses, limb movement) on `outputs/m960/*/selected.csv`;
   hand-label pauses on held-out videos BEFORE running the detector on them.

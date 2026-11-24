@@ -65,11 +65,12 @@ wingman/
 │       ├── config.py         loads follow.yaml (+ --set overrides)
 │       ├── geometry.py       dataset pixels ↔ wall metres (fixes a dataset quirk, see §6)
 │       ├── camera.py         SimCamera (drone view rendered from dataset) | LiveCamera (Jetson, untested)
-│       ├── detector.py       PersonTracker (YOLO + ByteTrack) and TargetLock (lock rules)
+│       ├── detector.py       baseline follower: PersonTracker (YOLO + ByteTrack) + TargetLock
+│       ├── hybrid.py         DEFAULT follower: VitTrack tracker + person-detector confirmation
 │       ├── controller.py     PID: offset in picture → up/down speed, with limits
 │       ├── drone.py          SimDrone (Layer 1) | PX4Drone via MAVSDK (untested)
 │       └── run_follow.py     the follow loop + simulation scoring
-├── tests/test_follow.py      13 automatic tests (python -m pytest -q)
+├── tests/test_follow.py      15 automatic tests (python -m pytest -q)
 ├── data/manifest.csv         the 22 videos
 ├── labels/                   HUMAN decisions (climber picks). Never overwrite with model output.
 ├── outputs/                  results (CSV/JSON in git; videos/images are not)
@@ -80,7 +81,7 @@ wingman/
 ```
 
 Not in git: `.venv/` (rebuild from `requirements.lock.txt`), `models/*.pt` (download
-automatically), videos and images (shared through the team Drive), the dataset itself
+automatically; `models/vittrack.onnx` comes from github.com/opencv/opencv_zoo, object_tracking_vittrack_2023sep), videos and images (shared through the team Drive), the dataset itself
 (`~/Downloads/wingman dataset`, from Zenodo record 15196867).
 
 ---
@@ -120,9 +121,14 @@ flowchart LR
 - camera: `SimCamera` (now) ↔ `LiveCamera` (Jetson)
 - drone: `SimDrone` (now) ↔ `PX4Drone` (PX4 SITL, then the real Pixhawk)
 
-**Lock rules (`detector.py`)** – the safety-critical part:
-1. At start, lock onto the person nearest the image centre (pilot centred them).
-2. Follow that track id only. If it disappears → **hold position**.
+**Default follower: hybrid (`hybrid.py`).** The user selects (taps) the climber; a
+single-object tracker (OpenCV VitTrack, `models/vittrack.onnx` from opencv_zoo) follows
+that appearance every check, and the person detector confirms it every 3rd check and
+re-centres it. Baseline alternative: `lock.mode: detector` (`detector.py`).
+
+**Lock rules** – the safety-critical part (both followers):
+1. Start from the user's selection (or, baseline, the person nearest the centre).
+2. Follow only that climber. If unconfirmed for 2 s or lost → **hold position**.
 3. Within 2 s, re-lock only onto someone close to the last position with a similar size.
 4. After that → stay holding and ask the pilot. **Never switch to whoever is nearest/largest.**
 
@@ -176,7 +182,7 @@ Jetson model, "elevator mode" (up/down only) vs free following.
 | Area | Done | Left |
 |---|---|---|
 | Model 2 analytics | Pose + tracking on 22 videos; human-confirmed climbers; held-out hands 97.8%, feet 81.6% at labelled holds | Pause detector; limb-movement / readjustment detection; investigate weak feet (p8_orange, p9_green); hand-label pauses on held-out videos **before** running the detector |
-| Model 1 follower | Settings file, sim camera + drone, lock rules, controller, 13 tests; sim on 20 untuned videos: climber fully in frame median 100%, 0 wrong-person locks, but "needs pilot" stops in 10/20 (partly a sim blur artifact, see PROGRESS_LOG) | Tune controller; set up PX4 SITL (Ubuntu); test `PX4Drone`; Jetson: JetPack, TensorRT, measured fps; `LiveCamera` with the real B0429 |
+| Model 1 follower | Sim camera + drone, controller, hybrid follower (default), 15 tests. Held-out sim (16 videos): pilot stops 1, brief losses 9, 0 wrong-person locks, ~5 checks/s minimum | Tune controller gains; real tap-select UI; sideways/yaw following (p2a_green); PX4 SITL (Ubuntu) + `PX4Drone`; Jetson: JetPack, TensorRT, VitTrack speed, Arducam AR0234 driver; `LiveCamera` |
 | Hardware (ESE) | Parts chosen, wiring diagram | Indoor hover with optical flow; camera lens / field of view; Jetson power and mounting; PX4 failsafe settings |
 | Integration | — | Props-off bench tests; handheld dry run; tethered and free flights; gym tests |
 

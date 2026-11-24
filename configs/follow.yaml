@@ -33,10 +33,12 @@ lock:
   # detector = person detector + ByteTrack ids every check (baseline).
   # hybrid   = single-object tracker (follows the selected climber's appearance) every check,
   #            confirmed by the person detector every few checks. See follow/hybrid.py.
-  mode: detector
+  # Default since 2026-11-23: hybrid. Held-out sim (16 videos): pilot stops 7 -> 1, brief lock
+  # losses 146 -> 9, wrong-person locks 0 -> 0, ~1/3 of the computing (outputs/sim/E_*).
+  mode: hybrid
   # How the climber is chosen at start: centre = person nearest the image centre;
   # tap = the user selects a box (in simulation: the climber's true box at the first frame).
-  start: centre
+  start: tap
   # At start the pilot puts the climber near the centre and "locks". We pick the person
   # nearest the image centre, within this fraction of the image height.
   lock_radius_frac: 0.25
@@ -50,7 +52,7 @@ lock:
 hybrid:
   tracker_model: models/vittrack.onnx   # OpenCV VitTrack (opencv_zoo, 2023sep), ~0.7 MB
   min_tracker_score: 0.3       # tracker's own confidence (0-1); below this it counts as lost (GUESS)
-  detect_every_n: 1            # run the person detector every n-th check (higher = less Jetson work)
+  detect_every_n: 3            # run the person detector every n-th check (higher = less Jetson work)
   agree_iou: 0.3               # tracker box and a person box overlapping at least this much = confirmed
   max_unconfirmed_s: 2.0       # follow the tracker alone for at most this long without a person confirming it
 
