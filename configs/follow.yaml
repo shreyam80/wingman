@@ -57,6 +57,10 @@ sim:
   max_view_center_m: 7.0       # highest
   render_scale: 0.5            # render the simulated camera at half resolution (speed)
   wrong_person_iou: 0.2        # locked box overlapping the true climber less than this = wrong person
+  # Simulated pictures whose source detail is below this share of what the view needs are
+  # "unrealistically blurry" (dataset camera far below the wall top). Scores are reported
+  # for all pictures and for realistic pictures only.
+  min_sharpness_ratio: 0.75
 
 px4:
   # Real PX4 or PX4 SITL via MAVSDK (Layer 2 / real drone). Untested until SITL is set up.

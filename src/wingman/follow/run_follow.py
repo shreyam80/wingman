@@ -110,12 +110,14 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
             drone.send_up_speed(cmd)
             next_tick += period
             if event:
-                events.append({"t_s": round(t, 2), "event": event, "track_id": lock.track_id})
+                events.append({"t_s": round(t, 2), "event": event, "track_id": lock.track_id,
+                               "sharpness_ratio": round(cam.sharpness_ratio(drone.x, drone.y), 3)})
 
         view = cam.view(drone.x, drone.y)
         row = {"frame_idx": fi, "t_s": round(t, 3), "drone_y_m": round(drone.y, 3),
                "drone_vy_mps": round(drone.vy, 3), "cmd_up_mps": round(cmd, 3),
-               "lock_state": lock.state, "tick": tick}
+               "lock_state": lock.state, "tick": tick,
+               "sharpness_ratio": round(cam.sharpness_ratio(drone.x, drone.y), 3)}
         gt = truth.get(fi)
         gt_px = view.box_px(*gt) if gt else None
         if gt_px:
@@ -146,8 +148,15 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
     log.to_csv(out / "log.csv", index=False)
     (out / "events.json").write_text(json.dumps(events, indent=1))
     scored = log.dropna(subset=["truth_visible_frac"])
+    sharp = cfg.sim.min_sharpness_ratio
+    real = scored[scored.sharpness_ratio >= sharp]
     ticks = log[log.tick]
     accel = np.abs(np.diff(log.drone_vy_mps)) * fps
+    # "Moving the wrong way": drone moving (> 0.05 m/s) while the climber is outside the
+    # dead zone on the OTHER side of the target - i.e. overshooting / running away.
+    off = cfg.controller.target_point_frac - scored.truth_centre_frac  # > 0: climber above target
+    wrong_way = ((off.abs() > cfg.controller.deadband_frac) & (scored.drone_vy_mps.abs() > 0.05)
+                 & (np.sign(off) != np.sign(scored.drone_vy_mps)))
     s = {
         "video_id": video_id,
         "seconds": round(len(log) / fps, 1),
@@ -161,6 +170,10 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
         "lost_events": sum(e["event"] == "lost" for e in events),
         "relocks": sum(e["event"] == "relock" for e in events),
         "needs_pilot_events": sum(e["event"] == "needs_pilot" for e in events),
+        "needs_pilot_realistic": sum(e["event"] == "needs_pilot" and e["sharpness_ratio"] >= sharp for e in events),
+        "realistic_frames_frac": round(len(real) / len(scored), 4) if len(scored) else None,
+        "fully_in_frame_realistic": round((real.truth_visible_frac >= 0.999).mean(), 4) if len(real) else None,
+        "wrong_way_frac": round(wrong_way.mean(), 4),
         "wrong_person_ticks": int(log.get("wrong_person", pd.Series(dtype=bool)).fillna(False).sum()),
         "max_speed_mps": round(log.drone_vy_mps.abs().max(), 3),
         "max_accel_mps2": round(float(accel.max()) if len(accel) else 0.0, 3),
@@ -194,8 +207,10 @@ def main():
         s = simulate(v, cfg, root / v, device, not args.no_video, args.max_seconds)
         summaries.append(s)
         print(f"{v}: fully in frame {s['climber_fully_in_frame']:.1%}, out {s['climber_out_of_frame']:.1%}, "
-              f"lost {s['lost_events']}, relocks {s['relocks']}, needs pilot {s['needs_pilot_events']}, "
-              f"wrong person {s['wrong_person_ticks']}, {s['sim_x_real_time']}x real time")
+              f"lost {s['lost_events']}, needs pilot {s['needs_pilot_events']} "
+              f"({s['needs_pilot_realistic']} in sharp pictures), wrong person {s['wrong_person_ticks']}, "
+              f"wrong way {s['wrong_way_frac']:.1%}, sharp {s['realistic_frames_frac']:.0%}, "
+              f"{s['sim_x_real_time']}x real time")
     pd.DataFrame(summaries).to_csv(root / "summary.csv", index=False)
     print(f"-> {root / 'summary.csv'}")
 

@@ -36,6 +36,15 @@ class SimCamera:
     def view(self, cx, cy):
         return View(cx, cy, self.view_w, self.view_h, self.W, self.H)
 
+    def sharpness_ratio(self, cx, cy):
+        """Detail the dataset video has at this wall point / detail this view needs
+        (both in pixels per wall metre, vertically). Below 1 the simulated picture is
+        an upscaled, softer version of reality; far below 1 it is unrealistically blurry."""
+        p = self.wall_map.wall_to_img
+        a = cv2.perspectiveTransform(np.array([[[cx, cy - 0.05]], [[cx, cy + 0.05]]], float), p)
+        source_px_per_m = abs(a[1, 0, 1] - a[0, 0, 1]) / 0.1
+        return source_px_per_m / (self.H / self.view_h)
+
     def picture(self, dataset_frame, cx, cy):
         """Render the drone's view, aimed at wall point (cx, cy) metres."""
         view_px_to_img = self.wall_map.wall_to_img @ self.view(cx, cy).px_to_wall_matrix()
