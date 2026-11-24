@@ -30,6 +30,13 @@ detector:
   tracker: configs/bytetrack.yaml
 
 lock:
+  # detector = person detector + ByteTrack ids every check (baseline).
+  # hybrid   = single-object tracker (follows the selected climber's appearance) every check,
+  #            confirmed by the person detector every few checks. See follow/hybrid.py.
+  mode: detector
+  # How the climber is chosen at start: centre = person nearest the image centre;
+  # tap = the user selects a box (in simulation: the climber's true box at the first frame).
+  start: centre
   # At start the pilot puts the climber near the centre and "locks". We pick the person
   # nearest the image centre, within this fraction of the image height.
   lock_radius_frac: 0.25
@@ -39,6 +46,13 @@ lock:
   reacquire_radius_frac: 0.15  # ...within this fraction of image height of the last box centre
   reacquire_size_ratio: 2.0    # ...and whose box height is within this factor of the last one
   # After the window: stay holding and ask the pilot to re-lock. Never auto-switch.
+
+hybrid:
+  tracker_model: models/vittrack.onnx   # OpenCV VitTrack (opencv_zoo, 2023sep), ~0.7 MB
+  min_tracker_score: 0.3       # tracker's own confidence (0-1); below this it counts as lost (GUESS)
+  detect_every_n: 1            # run the person detector every n-th check (higher = less Jetson work)
+  agree_iou: 0.3               # tracker box and a person box overlapping at least this much = confirmed
+  max_unconfirmed_s: 2.0       # follow the tracker alone for at most this long without a person confirming it
 
 controller:
   # Where the climber's box centre should sit in the picture: 0 = top edge, 1 = bottom.
