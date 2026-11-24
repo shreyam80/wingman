@@ -1,0 +1,3 @@
+video_id,seconds,frames_with_truth,climber_fully_in_frame,climber_mostly_in_frame,climber_out_of_frame,median_offset_frac,p95_offset_frac,locked_fraction_of_ticks,lost_events,relocks,needs_pilot_events,wrong_person_ticks,max_speed_mps,max_accel_mps2,median_detect_ms,sim_x_real_time
+p4_orange,50.0,1250,0.6808,0.7008,0.1128,0.114,0.578,0.436,6,5,1,0,0.343,0.725,9.3,5.3
+p5_orange,59.1,1474,0.8175,0.8338,0.0529,0.087,0.5104,0.4196,12,11,1,0,0.275,0.8,9.0,7.38

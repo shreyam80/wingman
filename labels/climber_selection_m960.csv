@@ -1,0 +1,23 @@
+video_id,track_id,links,confirmed,reviewer,notes
+p1_green,1,6@5.36;120@169.12,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p1_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p3_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p3_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p5_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p5_orange,1,12@5.44,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p10_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p10_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p2a_green,1,12@14.04,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p2a_orange,1,6@4.40,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p2b_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p2b_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p4_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p4_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p6_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p6_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p7_green,1,13@21.68;62@71.40,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p7_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p8_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p8_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p9_green,1,30@56.80,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)
+p9_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19)

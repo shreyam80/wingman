@@ -1,0 +1,97 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1
+ },
+ {
+  "t_s": 21.32,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 21.4,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 22.2,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 22.4,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 23.2,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 23.32,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 23.52,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 24.8,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 25.4,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 26.32,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 28.12,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 28.32,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 28.52,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 30.0,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 30.12,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 30.32,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 31.6,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 33.72,
+  "event": "needs_pilot",
+  "track_id": 1
+ }
+]

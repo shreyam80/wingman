@@ -175,6 +175,7 @@ def main():
                     help="human-confirmed re-identification NEW_ID@TIME_S (repeatable)")
     ap.add_argument("--selected-by", default="unspecified", help="who made the choice (pseudonym)")
     ap.add_argument("--draw-min-conf", type=float, default=0.5)
+    ap.add_argument("--no-video", action="store_true", help="skip overlay_selected.mp4")
     args = ap.parse_args()
 
     run = Path(args.run)
@@ -221,6 +222,9 @@ def main():
     }
     (run / "selection.json").write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
+    if args.no_video:
+        print(f"Wrote {run/'selected.csv'} (no video)")
+        return
     render(run, meta, sel, chain, args.draw_min_conf)
     print(f"Wrote {run/'selected.csv'} and {run/'overlay_selected.mp4'}")
 

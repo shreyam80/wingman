@@ -1,0 +1,21 @@
+# Hold-contact evaluation settings (used by wingman.eval_holds).
+# FIXED 2026-11-18, BEFORE any evaluation result was computed. Do not tune these
+# after seeing results - change them only with a written reason in PROGRESS_LOG.md.
+
+# A wrist/ankle counts as "at the hold" if its distance to the hold's box is at most
+# this many torso lengths. Torso length = shoulder-midpoint to hip-midpoint in the
+# same frame (about 50 cm on an adult). 0.5 torso lengths ~ 25 cm: the wrist sits a
+# hand-length from the fingers, and the ankle a foot-length from the toes.
+tolerance_torso_lengths: 0.5
+
+# Joints (and the 4 torso joints used for the ruler) below this model confidence are
+# treated as "no estimate" and counted separately, not as misses.
+min_joint_conf: 0.5
+
+# Dataset limb code -> our joint name. Unknown codes (e.g. "lh2") and "w" (wall,
+# no hold) are skipped and counted in the report.
+limb_to_joint:
+  rh: right_wrist
+  lh: left_wrist
+  rf: right_ankle
+  lf: left_ankle

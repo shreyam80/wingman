@@ -51,7 +51,7 @@ def main():
     run = Path(args.run)
 
     # 1. Files present
-    need = ["meta.json", "frames.csv", "detections.csv", "overlay_all.mp4"]
+    need = ["meta.json", "frames.csv", "detections.csv"]  # overlay videos are optional (--no-video)
     missing = [f for f in need if not (run / f).exists()]
     check(not missing, "files present", "all stage-1 outputs exist", f"missing {missing}")
     if missing:
@@ -122,6 +122,11 @@ def main():
         check(cnt == n and abs(vfps - fps) < 0.01 and (vw, vh) == (W, H), f"{name} format",
               f"{cnt} frames, {vfps} FPS, {vw}x{vh} (same as input)",
               f"{cnt} frames, {vfps} FPS, {vw}x{vh} vs input {n}, {fps}, {W}x{H}")
+    if not (run / "overlay_all.mp4").exists():
+        report("WARN", "overlay videos", "not made for this run (--no-video); video checks skipped")
+        fails = results.count("FAIL")
+        print(f"\n{results.count('PASS')} passed, {results.count('WARN')} warnings, {fails} failed")
+        sys.exit(1 if fails else 0)
     # Compare a few overlay frames with the original, in a band of rows the drawings
     # rarely cover. Small differences = video compression; large = wrong frame/offset.
     src = cv2.VideoCapture(meta["video"])

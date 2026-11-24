@@ -1,0 +1,490 @@
+{
+  "selected_by": "shreyamu",
+  "method": "track id 1 chosen after inspecting preview",
+  "chain": [
+    {
+      "track_id": 1,
+      "from_s": 0.0
+    },
+    {
+      "track_id": 19,
+      "from_s": 5.52
+    },
+    {
+      "track_id": 77,
+      "from_s": 122.56
+    },
+    {
+      "track_id": 140,
+      "from_s": 171.08
+    },
+    {
+      "track_id": 143,
+      "from_s": 174.68
+    }
+  ],
+  "status_counts": {
+    "tracked": 4529,
+    "lost": 178
+  },
+  "tracked_fraction_after_selection": 0.9622,
+  "lost_intervals_s": [
+    [
+      5.24,
+      5.32
+    ],
+    [
+      34.88,
+      35.0
+    ],
+    [
+      50.12,
+      50.12
+    ],
+    [
+      101.64,
+      101.72
+    ],
+    [
+      102.12,
+      102.16
+    ],
+    [
+      102.68,
+      102.72
+    ],
+    [
+      106.4,
+      106.52
+    ],
+    [
+      114.0,
+      114.0
+    ],
+    [
+      114.24,
+      114.24
+    ],
+    [
+      118.12,
+      118.16
+    ],
+    [
+      121.68,
+      121.96
+    ],
+    [
+      122.76,
+      122.88
+    ],
+    [
+      131.64,
+      131.64
+    ],
+    [
+      137.68,
+      137.76
+    ],
+    [
+      138.92,
+      139.36
+    ],
+    [
+      141.0,
+      141.08
+    ],
+    [
+      142.32,
+      142.36
+    ],
+    [
+      142.44,
+      142.44
+    ],
+    [
+      157.44,
+      157.44
+    ],
+    [
+      157.52,
+      157.56
+    ],
+    [
+      157.76,
+      157.76
+    ],
+    [
+      163.4,
+      163.4
+    ],
+    [
+      169.04,
+      169.08
+    ],
+    [
+      169.24,
+      169.24
+    ],
+    [
+      169.32,
+      171.04
+    ],
+    [
+      171.12,
+      171.28
+    ],
+    [
+      171.36,
+      171.36
+    ],
+    [
+      171.64,
+      171.64
+    ],
+    [
+      171.72,
+      171.76
+    ],
+    [
+      171.84,
+      171.96
+    ],
+    [
+      172.64,
+      174.64
+    ],
+    [
+      178.12,
+      178.2
+    ],
+    [
+      181.44,
+      181.44
+    ],
+    [
+      181.56,
+      181.56
+    ]
+  ],
+  "suggested_links_unconfirmed": [
+    {
+      "lost_from_s": 5.24,
+      "candidate_id": 24,
+      "appears_s": 5.72,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 101.64,
+      "candidate_id": 49,
+      "appears_s": 101.64,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 102.12,
+      "candidate_id": 49,
+      "appears_s": 102.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 102.68,
+      "candidate_id": 49,
+      "appears_s": 102.68,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 106.4,
+      "candidate_id": 49,
+      "appears_s": 106.4,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 114.0,
+      "candidate_id": 63,
+      "appears_s": 114.0,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 114.0,
+      "candidate_id": 74,
+      "appears_s": 116.4,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 114.24,
+      "candidate_id": 63,
+      "appears_s": 114.24,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 114.24,
+      "candidate_id": 74,
+      "appears_s": 116.4,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 118.12,
+      "candidate_id": 63,
+      "appears_s": 118.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 121.68,
+      "candidate_id": 63,
+      "appears_s": 121.68,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 122.76,
+      "candidate_id": 63,
+      "appears_s": 122.76,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 131.64,
+      "candidate_id": 81,
+      "appears_s": 131.64,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 137.68,
+      "candidate_id": 81,
+      "appears_s": 137.68,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 137.68,
+      "candidate_id": 87,
+      "appears_s": 137.68,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 138.92,
+      "candidate_id": 81,
+      "appears_s": 138.92,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 138.92,
+      "candidate_id": 92,
+      "appears_s": 141.04,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 141.0,
+      "candidate_id": 81,
+      "appears_s": 141.0,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 141.0,
+      "candidate_id": 92,
+      "appears_s": 141.04,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 141.0,
+      "candidate_id": 98,
+      "appears_s": 143.0,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 142.32,
+      "candidate_id": 81,
+      "appears_s": 142.32,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 142.32,
+      "candidate_id": 92,
+      "appears_s": 142.32,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 142.32,
+      "candidate_id": 98,
+      "appears_s": 143.0,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 142.44,
+      "candidate_id": 81,
+      "appears_s": 142.44,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 142.44,
+      "candidate_id": 92,
+      "appears_s": 142.44,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 142.44,
+      "candidate_id": 98,
+      "appears_s": 143.0,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 157.44,
+      "candidate_id": 119,
+      "appears_s": 157.44,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 157.52,
+      "candidate_id": 119,
+      "appears_s": 157.52,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 157.76,
+      "candidate_id": 119,
+      "appears_s": 157.76,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 163.4,
+      "candidate_id": 119,
+      "appears_s": 163.4,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 163.4,
+      "candidate_id": 130,
+      "appears_s": 163.84,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 163.4,
+      "candidate_id": 131,
+      "appears_s": 164.04,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 163.4,
+      "candidate_id": 137,
+      "appears_s": 164.68,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.04,
+      "candidate_id": 119,
+      "appears_s": 169.04,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.24,
+      "candidate_id": 119,
+      "appears_s": 169.24,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.24,
+      "candidate_id": 141,
+      "appears_s": 172.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.32,
+      "candidate_id": 119,
+      "appears_s": 169.32,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.32,
+      "candidate_id": 141,
+      "appears_s": 172.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.12,
+      "candidate_id": 119,
+      "appears_s": 171.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.12,
+      "candidate_id": 141,
+      "appears_s": 172.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.36,
+      "candidate_id": 119,
+      "appears_s": 171.36,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.36,
+      "candidate_id": 141,
+      "appears_s": 172.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.64,
+      "candidate_id": 119,
+      "appears_s": 171.64,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.64,
+      "candidate_id": 141,
+      "appears_s": 172.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.72,
+      "candidate_id": 119,
+      "appears_s": 171.72,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.72,
+      "candidate_id": 141,
+      "appears_s": 172.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.84,
+      "candidate_id": 119,
+      "appears_s": 171.84,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 171.84,
+      "candidate_id": 141,
+      "appears_s": 172.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 172.64,
+      "candidate_id": 119,
+      "appears_s": 172.64,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 172.64,
+      "candidate_id": 141,
+      "appears_s": 172.64,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 178.12,
+      "candidate_id": 119,
+      "appears_s": 178.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 181.44,
+      "candidate_id": 119,
+      "appears_s": 181.44,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 181.56,
+      "candidate_id": 119,
+      "appears_s": 181.56,
+      "iou_with_last_box": 0.0
+    }
+  ],
+  "note": "Track ids are tracker guesses; inspect overlay_selected.mp4 for identity switches."
+}

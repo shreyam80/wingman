@@ -1,0 +1,67 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1
+ },
+ {
+  "t_s": 11.12,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 11.2,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 16.92,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 17.12,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 17.2,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 17.32,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 19.4,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 19.72,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 21.0,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 22.52,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 24.0,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 26.12,
+  "event": "needs_pilot",
+  "track_id": 1
+ }
+]

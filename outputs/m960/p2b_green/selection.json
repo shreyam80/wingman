@@ -1,0 +1,58 @@
+{
+  "selected_by": "shreyamu",
+  "method": "track id 1 chosen after inspecting preview",
+  "chain": [
+    {
+      "track_id": 1,
+      "from_s": 0.0
+    }
+  ],
+  "status_counts": {
+    "tracked": 1400,
+    "lost": 20
+  },
+  "tracked_fraction_after_selection": 0.9859,
+  "lost_intervals_s": [
+    [
+      18.64,
+      19.04
+    ],
+    [
+      19.12,
+      19.44
+    ]
+  ],
+  "suggested_links_unconfirmed": [
+    {
+      "lost_from_s": 18.64,
+      "candidate_id": 4,
+      "appears_s": 18.64,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 18.64,
+      "candidate_id": 13,
+      "appears_s": 18.68,
+      "iou_with_last_box": 0.49
+    },
+    {
+      "lost_from_s": 18.64,
+      "candidate_id": 14,
+      "appears_s": 18.84,
+      "iou_with_last_box": 0.48
+    },
+    {
+      "lost_from_s": 19.12,
+      "candidate_id": 4,
+      "appears_s": 19.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 19.12,
+      "candidate_id": 13,
+      "appears_s": 19.2,
+      "iou_with_last_box": 0.2
+    }
+  ],
+  "note": "Track ids are tracker guesses; inspect overlay_selected.mp4 for identity switches."
+}

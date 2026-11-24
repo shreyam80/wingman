@@ -1,0 +1,51 @@
+{
+  "video": "/Users/shreyasmacbookpro2/Downloads/wingman dataset/p4/orange.mp4",
+  "config": {
+    "tolerance_torso_lengths": 0.5,
+    "min_joint_conf": 0.5,
+    "limb_to_joint": {
+      "rh": "right_wrist",
+      "lh": "left_wrist",
+      "rf": "right_ankle",
+      "lf": "left_ankle"
+    }
+  },
+  "skipped_label_rows": {
+    "wall": 1,
+    "unknown_code": 0,
+    "occluded_frames": 1093
+  },
+  "hands": {
+    "contact_frames": 844,
+    "evaluated": 726,
+    "evaluated_fraction": 0.8602,
+    "not_evaluated_reasons": {
+      "joint_low_conf": 118
+    },
+    "hit_rate": 0.9931,
+    "median_dist_torso_lengths": 0.0,
+    "median_dist_if_ids_shifted": 0.94,
+    "left_right": {
+      "checkable_frames": 112,
+      "swapped_frames": 0,
+      "swap_rate": 0.0
+    }
+  },
+  "feet": {
+    "contact_frames": 1622,
+    "evaluated": 1619,
+    "evaluated_fraction": 0.9982,
+    "not_evaluated_reasons": {
+      "no_torso_ruler": 3
+    },
+    "hit_rate": 0.9728,
+    "median_dist_torso_lengths": 0.225,
+    "median_dist_if_ids_shifted": 0.892,
+    "left_right": {
+      "checkable_frames": 332,
+      "swapped_frames": 0,
+      "swap_rate": 0.0
+    }
+  },
+  "note": "Joints are wrists/ankles, not fingers/toes; hit = within tolerance of the labelled hold box. Not-evaluated frames are excluded from hit_rate, not counted as hits."
+}

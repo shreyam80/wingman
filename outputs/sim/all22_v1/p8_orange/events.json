@@ -1,0 +1,17 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1
+ },
+ {
+  "t_s": 26.0,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 26.12,
+  "event": "relock",
+  "track_id": 1
+ }
+]

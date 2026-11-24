@@ -1,0 +1,198 @@
+{
+  "selected_by": "shreyamu",
+  "method": "track id 1 chosen after inspecting preview",
+  "chain": [
+    {
+      "track_id": 1,
+      "from_s": 0.0
+    },
+    {
+      "track_id": 6,
+      "from_s": 5.36
+    },
+    {
+      "track_id": 120,
+      "from_s": 169.12
+    }
+  ],
+  "status_counts": {
+    "tracked": 4693,
+    "lost": 14
+  },
+  "tracked_fraction_after_selection": 0.997,
+  "lost_intervals_s": [
+    [
+      166.52,
+      166.52
+    ],
+    [
+      166.6,
+      166.6
+    ],
+    [
+      166.68,
+      166.68
+    ],
+    [
+      166.8,
+      166.8
+    ],
+    [
+      166.88,
+      166.88
+    ],
+    [
+      166.96,
+      167.08
+    ],
+    [
+      169.0,
+      169.08
+    ],
+    [
+      174.08,
+      174.12
+    ]
+  ],
+  "suggested_links_unconfirmed": [
+    {
+      "lost_from_s": 166.52,
+      "candidate_id": 98,
+      "appears_s": 166.52,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.52,
+      "candidate_id": 101,
+      "appears_s": 166.52,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.52,
+      "candidate_id": 116,
+      "appears_s": 168.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.6,
+      "candidate_id": 98,
+      "appears_s": 166.6,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.6,
+      "candidate_id": 101,
+      "appears_s": 166.6,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.6,
+      "candidate_id": 116,
+      "appears_s": 168.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.68,
+      "candidate_id": 98,
+      "appears_s": 166.68,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.68,
+      "candidate_id": 101,
+      "appears_s": 166.68,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.68,
+      "candidate_id": 116,
+      "appears_s": 168.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.8,
+      "candidate_id": 98,
+      "appears_s": 166.8,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.8,
+      "candidate_id": 101,
+      "appears_s": 166.8,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.8,
+      "candidate_id": 116,
+      "appears_s": 168.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.88,
+      "candidate_id": 98,
+      "appears_s": 166.88,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.88,
+      "candidate_id": 101,
+      "appears_s": 166.88,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.88,
+      "candidate_id": 116,
+      "appears_s": 168.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.96,
+      "candidate_id": 98,
+      "appears_s": 166.96,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.96,
+      "candidate_id": 101,
+      "appears_s": 166.96,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 166.96,
+      "candidate_id": 116,
+      "appears_s": 168.12,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.0,
+      "candidate_id": 98,
+      "appears_s": 169.0,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.0,
+      "candidate_id": 101,
+      "appears_s": 169.0,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 169.0,
+      "candidate_id": 121,
+      "appears_s": 170.88,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 174.08,
+      "candidate_id": 98,
+      "appears_s": 174.08,
+      "iou_with_last_box": 0.0
+    },
+    {
+      "lost_from_s": 174.08,
+      "candidate_id": 122,
+      "appears_s": 174.08,
+      "iou_with_last_box": 0.0
+    }
+  ],
+  "note": "Track ids are tracker guesses; inspect overlay_selected.mp4 for identity switches."
+}

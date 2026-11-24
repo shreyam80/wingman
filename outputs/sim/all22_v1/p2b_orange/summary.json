@@ -1,0 +1,19 @@
+{
+  "video_id": "p2b_orange",
+  "seconds": 46.7,
+  "frames_with_truth": 1158,
+  "climber_fully_in_frame": 0.9223,
+  "climber_mostly_in_frame": 1.0,
+  "climber_out_of_frame": 0.0,
+  "median_offset_frac": 0.0605,
+  "p95_offset_frac": 0.3171,
+  "locked_fraction_of_ticks": 0.5803,
+  "lost_events": 9,
+  "relocks": 8,
+  "needs_pilot_events": 1,
+  "wrong_person_ticks": 0,
+  "max_speed_mps": 0.31,
+  "max_accel_mps2": 0.725,
+  "median_detect_ms": 12.0,
+  "sim_x_real_time": 5.94
+}

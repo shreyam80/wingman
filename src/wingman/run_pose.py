@@ -47,6 +47,8 @@ def main():
     ap.add_argument("--device", default="mps" if torch.backends.mps.is_available() else "cpu")
     ap.add_argument("--draw-min-conf", type=float, default=0.5,
                     help="joints below this confidence are not drawn in the overlay")
+    ap.add_argument("--no-video", action="store_true",
+                    help="skip overlay_all.mp4 (faster, saves disk; CSV/JSON results are identical)")
     args = ap.parse_args()
 
     video = Path(args.video).expanduser()
@@ -60,7 +62,8 @@ def main():
     cap = cv2.VideoCapture(str(video))
     for _ in range(start_f):  # sequential skip: exact frame positions, unlike seeking
         cap.grab()
-    writer, codec = open_writer(out / "overlay_all.mp4", info["fps"], info["width"], info["height"])
+    writer, codec = (None, None) if args.no_video else open_writer(
+        out / "overlay_all.mp4", info["fps"], info["width"], info["height"])
 
     det_f = open(out / "detections.csv", "w", newline="")
     det_w = csv.writer(det_f)
@@ -95,24 +98,28 @@ def main():
             det_w.writerow([frame_idx, f"{t_s:.4f}", ids[i]] + [f"{v:.1f}" for v in boxes[i]]
                            + [f"{confs[i]:.3f}"]
                            + [f"{v:.3f}" if k % 3 == 2 else f"{v:.1f}" for k, v in enumerate(kps[i].ravel())])
+            if writer is None:
+                continue
             color = TRACK_COLORS[ids[i] % len(TRACK_COLORS)] if ids[i] >= 0 else (128, 128, 128)
             x1, y1, x2, y2 = boxes[i].astype(int)
             cv2.rectangle(vis, (x1, y1), (x2, y2), color, 2)
             put_label(vis, f"ID {ids[i]}  {confs[i]:.2f}", (x1, max(30, y1 - 10)), 0.8, color)
             draw_skeleton(vis, {n: tuple(kps[i][j]) for j, n in enumerate(KEYPOINT_NAMES)}, args.draw_min_conf)
         frm_w.writerow([frame_idx, f"{t_s:.4f}", len(boxes), f"{infer_ms:.1f}"])
-        put_label(vis, f"t={t_s:6.2f}s  frame {frame_idx}  tracked={len(boxes)}", (15, 40), 0.9)
-        put_label(vis, f"{Path(args.model).stem} + ByteTrack | joints conf>={args.draw_min_conf}",
-                  (15, info["height"] - 20), 0.6)
-        writer.write(vis)
+        if writer is not None:
+            put_label(vis, f"t={t_s:6.2f}s  frame {frame_idx}  tracked={len(boxes)}", (15, 40), 0.9)
+            put_label(vis, f"{Path(args.model).stem} + ByteTrack | joints conf>={args.draw_min_conf}",
+                      (15, info["height"] - 20), 0.6)
+            writer.write(vis)
         n_done += 1
         if n_done % 100 == 0:
             el = time.perf_counter() - t0
             print(f"  {n_done}/{end_f - start_f} frames, {n_done / el:.1f} frames/s")
 
     total = time.perf_counter() - t0
-    for h in (cap, writer):
-        h.release()
+    cap.release()
+    if writer is not None:
+        writer.release()
     det_f.close()
     frm_f.close()
 

@@ -1,0 +1,19 @@
+{
+  "video_id": "p8_green",
+  "seconds": 77.4,
+  "frames_with_truth": 1936,
+  "climber_fully_in_frame": 1.0,
+  "climber_mostly_in_frame": 1.0,
+  "climber_out_of_frame": 0.0,
+  "median_offset_frac": 0.043,
+  "p95_offset_frac": 0.085,
+  "locked_fraction_of_ticks": 0.9794,
+  "lost_events": 5,
+  "relocks": 5,
+  "needs_pilot_events": 0,
+  "wrong_person_ticks": 0,
+  "max_speed_mps": 0.355,
+  "max_accel_mps2": 0.725,
+  "median_detect_ms": 14.1,
+  "sim_x_real_time": 4.97
+}

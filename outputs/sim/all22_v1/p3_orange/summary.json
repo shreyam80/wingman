@@ -1,0 +1,19 @@
+{
+  "video_id": "p3_orange",
+  "seconds": 38.7,
+  "frames_with_truth": 966,
+  "climber_fully_in_frame": 1.0,
+  "climber_mostly_in_frame": 1.0,
+  "climber_out_of_frame": 0.0,
+  "median_offset_frac": 0.055,
+  "p95_offset_frac": 0.114,
+  "locked_fraction_of_ticks": 0.8992,
+  "lost_events": 10,
+  "relocks": 10,
+  "needs_pilot_events": 0,
+  "wrong_person_ticks": 0,
+  "max_speed_mps": 0.446,
+  "max_accel_mps2": 0.75,
+  "median_detect_ms": 12.0,
+  "sim_x_real_time": 6.04
+}

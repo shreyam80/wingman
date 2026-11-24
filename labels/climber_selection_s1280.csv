@@ -1,0 +1,7 @@
+video_id,track_id,links,confirmed,reviewer,notes
+p1_green,1,5@5.24,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p1_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p3_green,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p3_orange,1,,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p5_green,1,15@13.44;37@25.64,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber
+p5_orange,1,30@32.00,yes,shreyamu,right person in all 6 review frames (reviewed 2026-11-19); empty frames = model missed climber

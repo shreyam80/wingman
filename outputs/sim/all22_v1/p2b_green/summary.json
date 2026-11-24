@@ -1,0 +1,19 @@
+{
+  "video_id": "p2b_green",
+  "seconds": 56.8,
+  "frames_with_truth": 1400,
+  "climber_fully_in_frame": 0.79,
+  "climber_mostly_in_frame": 0.84,
+  "climber_out_of_frame": 0.0757,
+  "median_offset_frac": 0.104,
+  "p95_offset_frac": 0.52,
+  "locked_fraction_of_ticks": 0.3627,
+  "lost_events": 8,
+  "relocks": 7,
+  "needs_pilot_events": 1,
+  "wrong_person_ticks": 0,
+  "max_speed_mps": 0.339,
+  "max_accel_mps2": 0.775,
+  "median_detect_ms": 11.8,
+  "sim_x_real_time": 6.2
+}

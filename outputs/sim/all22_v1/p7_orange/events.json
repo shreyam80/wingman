@@ -1,0 +1,167 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1
+ },
+ {
+  "t_s": 25.4,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 26.52,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 26.6,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 26.8,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 27.32,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 27.92,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 28.8,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 29.0,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 29.32,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 29.8,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 30.2,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 31.92,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 32.4,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 32.52,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 33.6,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 33.92,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 34.2,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 35.12,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 35.72,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 35.92,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 36.72,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 37.4,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 38.4,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 39.32,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 39.92,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 40.2,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 40.72,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 41.52,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 43.52,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 43.8,
+  "event": "relock",
+  "track_id": 1
+ },
+ {
+  "t_s": 45.12,
+  "event": "lost",
+  "track_id": 1
+ },
+ {
+  "t_s": 47.2,
+  "event": "needs_pilot",
+  "track_id": 1
+ }
+]

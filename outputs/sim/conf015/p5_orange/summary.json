@@ -1,0 +1,19 @@
+{
+  "video_id": "p5_orange",
+  "seconds": 59.1,
+  "frames_with_truth": 1474,
+  "climber_fully_in_frame": 0.8175,
+  "climber_mostly_in_frame": 0.8338,
+  "climber_out_of_frame": 0.0529,
+  "median_offset_frac": 0.087,
+  "p95_offset_frac": 0.5104,
+  "locked_fraction_of_ticks": 0.4196,
+  "lost_events": 12,
+  "relocks": 11,
+  "needs_pilot_events": 1,
+  "wrong_person_ticks": 0,
+  "max_speed_mps": 0.275,
+  "max_accel_mps2": 0.8,
+  "median_detect_ms": 9.0,
+  "sim_x_real_time": 7.38
+}

@@ -1,0 +1,64 @@
+# Wingman follow settings ("Model 1": live climber following on the Jetson).
+# Every number the follow code uses lives here, with its unit. Change values here,
+# not in the code. Values marked GUESS are starting points to tune in simulation.
+
+camera:
+  # Arducam B0429: AR0234 sensor, 1920x1200, global shutter, up to 60 fps, M12 lens
+  # mount (DigiKey listing; not yet checked against the datasheet).
+  sensor_width_px: 1920
+  sensor_height_px: 1200
+  orientation: portrait        # portrait = long side vertical (climbers are tall). landscape | portrait
+  # Vertical field of view of the MOUNTED camera, degrees. Depends on which M12 lens is
+  # fitted - unknown until ESE confirms the lens. GUESS.
+  fov_vertical_deg: 70
+  tilt_deg: 0                  # camera pitch on its mount; 0 = facing the wall squarely
+  fps: 30                      # frames per second the camera delivers
+
+flight:
+  distance_to_wall_m: 3.0      # how far the drone holds from the wall (agree with ESE). GUESS
+  mode: elevator               # elevator = hold position, move only up/down
+
+loop:
+  rate_hz: 10                  # how many times per second the follow loop runs (Jetson speed!)
+  latency_s: 0.15              # delay from photo taken to command applied (GUESS; measure on Jetson)
+
+detector:
+  model: yolo11s.pt            # person detector (official weights). Chosen in sim 2026-11-23: nano missed
+                               # back-facing climbers (p4/p5 orange). Must reach loop.rate_hz on the Jetson.
+  imgsz: 640                   # longest side the model sees, pixels
+  conf: 0.15                   # ignore person boxes below this confidence (0.3 caused flicker in sim)
+  tracker: configs/bytetrack.yaml
+
+lock:
+  # At start the pilot puts the climber near the centre and "locks". We pick the person
+  # nearest the image centre, within this fraction of the image height.
+  lock_radius_frac: 0.25
+  # If the locked person disappears, the drone HOLDS (no movement). Within this many
+  # seconds it may re-lock onto a person who reappears close to the last position...
+  reacquire_window_s: 2.0
+  reacquire_radius_frac: 0.15  # ...within this fraction of image height of the last box centre
+  reacquire_size_ratio: 2.0    # ...and whose box height is within this factor of the last one
+  # After the window: stay holding and ask the pilot to re-lock. Never auto-switch.
+
+controller:
+  # Where the climber's box centre should sit in the picture: 0 = top edge, 1 = bottom.
+  target_point_frac: 0.5
+  deadband_frac: 0.05          # ignore offsets smaller than this fraction of image height
+  kp: 0.8                      # m/s of climb speed per metre of offset (GUESS - tune)
+  ki: 0.0                      # integral gain, 1/s^2 (off to start)
+  kd: 0.1                      # derivative gain, s (GUESS)
+  max_speed_mps: 0.5           # never command faster than this up/down
+  max_accel_mps2: 0.8          # never change speed faster than this
+
+sim:
+  # Simulated drone (Layer 1). The real limits live in PX4; these mimic them.
+  response_time_s: 0.3         # how quickly the drone reaches a commanded speed
+  min_view_center_m: 0.0       # lowest camera-aim height on the wall (wall metres)
+  max_view_center_m: 7.0       # highest
+  render_scale: 0.5            # render the simulated camera at half resolution (speed)
+  wrong_person_iou: 0.2        # locked box overlapping the true climber less than this = wrong person
+
+px4:
+  # Real PX4 or PX4 SITL via MAVSDK (Layer 2 / real drone). Untested until SITL is set up.
+  # SITL usually listens on UDP 14540; on the drone the Jetson uses a serial port to TELEM2.
+  address: udpin://0.0.0.0:14540

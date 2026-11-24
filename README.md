@@ -40,6 +40,29 @@ cd models && ../.venv/bin/python -m wingman.run_pose \
 .venv/bin/python -m wingman.check_run --run outputs/p1_orange_16-36_s
 ```
 
+### Many videos at once (current workflow)
+```bash
+# Pose + tracking on every manifest video (skips finished ones)
+.venv/bin/python -m wingman.batch --name m960 --model yolo11m-pose.pt --imgsz 960
+# Suggest the climber per video -> review outputs/m960/*/review.jpg
+.venv/bin/python -m wingman.propose_climber --name m960
+# A human sets confirmed=yes in labels/climber_selection_m960.csv, then:
+.venv/bin/python -m wingman.propose_climber --name m960 --apply
+# Joints vs the dataset's hold labels, then one results table
+.venv/bin/python -m wingman.eval_holds --run outputs/m960/p4_orange
+.venv/bin/python -m wingman.compare --names m960 --participants p2,p4,p6,p7,p8,p9,p10
+```
+
+### Model 1: live follower simulation (Layer 1, runs on a Mac)
+```bash
+# All follower settings are in configs/follow.yaml; --set overrides one for a run
+.venv/bin/python -m wingman.follow.run_follow --videos p4_orange,p5_orange --name try1
+.venv/bin/python -m wingman.follow.run_follow --videos all --no-video --name all22 --set controller.kp=1.0
+# Automatic tests (controller limits, lock rules, simulated drone, wall geometry)
+.venv/bin/python -m pytest -q
+```
+Start with `CLAUDE.md` for how all the pieces fit together.
+
 Hands-on guide with explanations: `docs/WALKTHROUGH.md`. Plain-language explanation of every file: `docs/FILE_GUIDE.md`.
 
 ## Output files (per run folder)

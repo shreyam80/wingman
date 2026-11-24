@@ -1,0 +1,27 @@
+{
+  "selected_by": "shreyamu",
+  "method": "track id 1 chosen after inspecting preview",
+  "chain": [
+    {
+      "track_id": 1,
+      "from_s": 0.0
+    }
+  ],
+  "status_counts": {
+    "tracked": 2210,
+    "lost": 3
+  },
+  "tracked_fraction_after_selection": 0.9986,
+  "lost_intervals_s": [
+    [
+      78.12,
+      78.12
+    ],
+    [
+      78.32,
+      78.36
+    ]
+  ],
+  "suggested_links_unconfirmed": [],
+  "note": "Track ids are tracker guesses; inspect overlay_selected.mp4 for identity switches."
+}
