@@ -33,9 +33,10 @@ import yaml
 from wingman.follow.camera import SimCamera
 from wingman.follow.config import PROJECT, load_config
 from wingman.follow.controller import VerticalController
-from wingman.follow.detector import PersonTracker, TargetLock
+from wingman.follow.detector import DetectorFollower
 from wingman.follow.drone import SimDrone
 from wingman.follow.geometry import WallMap
+from wingman.follow.hybrid import HybridFollower
 from wingman.video_io import open_writer, put_label
 
 
@@ -72,8 +73,14 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
     l, b, r, t_ = truth[first]
     drone = SimDrone(cfg, start_x=(l + r) / 2, start_y=(b + t_) / 2)  # pilot centred the climber
     cam = SimCamera(cfg, wall_map)
-    tracker = PersonTracker(cfg, device)
-    lock = TargetLock(cfg, cam.W, cam.H)
+    # "tap": the user selects the climber; in simulation that is the true box at the start
+    tap_box = cam.view(drone.x, drone.y).box_px(l, b, r, t_) if cfg.lock.start == "tap" else None
+    if cfg.lock.mode == "hybrid":
+        if tap_box is None:
+            raise ValueError("lock.mode hybrid needs lock.start: tap")
+        follower = HybridFollower(cfg, cam.W, cam.H, device, tap_box)
+    else:
+        follower = DetectorFollower(cfg, cam.W, cam.H, device, tap_box)
     ctrl = VerticalController(cfg, cam.view_h)
 
     cap = cv2.VideoCapture(str(video))
@@ -102,21 +109,21 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
         tick = t + 1e-9 >= next_tick
         if tick:
             ti = time.perf_counter()
-            people = tracker.people(img)
+            box, event = follower.update(t, img)
+            people = follower.people
             infer_ms.append((time.perf_counter() - ti) * 1000)
-            box, event = lock.update(t, people)
             v_frac = None if box is None else (box[1] + box[3]) / 2 / cam.H
             cmd = ctrl.update(v_frac, period)
             drone.send_up_speed(cmd)
             next_tick += period
             if event:
-                events.append({"t_s": round(t, 2), "event": event, "track_id": lock.track_id,
-                               "sharpness_ratio": round(cam.sharpness_ratio(drone.x, drone.y), 3)})
+                events.append({"t_s": round(t, 2), "event": event, "track_id": follower.track_id,
+                               "sharpness_ratio": round(float(cam.sharpness_ratio(drone.x, drone.y)), 3)})
 
         view = cam.view(drone.x, drone.y)
         row = {"frame_idx": fi, "t_s": round(t, 3), "drone_y_m": round(drone.y, 3),
                "drone_vy_mps": round(drone.vy, 3), "cmd_up_mps": round(cmd, 3),
-               "lock_state": lock.state, "tick": tick,
+               "lock_state": follower.state, "tick": tick,
                "sharpness_ratio": round(cam.sharpness_ratio(drone.x, drone.y), 3)}
         gt = truth.get(fi)
         gt_px = view.box_px(*gt) if gt else None
@@ -128,7 +135,7 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
         rows.append(row)
 
         if writer:
-            for _, pb in people:
+            for pb in people:
                 cv2.rectangle(img, tuple(map(int, pb[:2])), tuple(map(int, pb[2:])), (160, 160, 160), 1)
             if gt_px:
                 cv2.rectangle(img, tuple(map(int, gt_px[:2])), tuple(map(int, gt_px[2:])), (255, 255, 255), 1)
@@ -136,8 +143,8 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
                 cv2.rectangle(img, tuple(map(int, box[:2])), tuple(map(int, box[2:])), (0, 255, 0), 2)
             y_t = int(cfg.controller.target_point_frac * cam.H)
             cv2.line(img, (0, y_t), (cam.W, y_t), (0, 200, 255), 1)
-            put_label(img, f"t={t:5.1f}s {lock.state}", (8, 24), 0.6,
-                      (0, 255, 0) if lock.state == "LOCKED" else (0, 0, 255))
+            put_label(img, f"t={t:5.1f}s {follower.state}", (8, 24), 0.6,
+                      (0, 255, 0) if follower.state == "LOCKED" else (0, 0, 255))
             put_label(img, f"cmd {cmd:+.2f} m/s  h={drone.y:.2f} m", (8, 48), 0.6)
             writer.write(img)
     cap.release()
@@ -170,7 +177,7 @@ def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
         "lost_events": sum(e["event"] == "lost" for e in events),
         "relocks": sum(e["event"] == "relock" for e in events),
         "needs_pilot_events": sum(e["event"] == "needs_pilot" for e in events),
-        "needs_pilot_realistic": sum(e["event"] == "needs_pilot" and e["sharpness_ratio"] >= sharp for e in events),
+        "needs_pilot_realistic": int(sum(e["event"] == "needs_pilot" and e["sharpness_ratio"] >= sharp for e in events)),
         "realistic_frames_frac": round(len(real) / len(scored), 4) if len(scored) else None,
         "fully_in_frame_realistic": round((real.truth_visible_frac >= 0.999).mean(), 4) if len(real) else None,
         "wrong_way_frac": round(wrong_way.mean(), 4),

@@ -128,3 +128,47 @@ def test_wallmap_puts_reference_bolts_at_their_wall_positions():
     for y in np.unique(want[:, 1]):
         g = got[np.isclose(got[:, 1], y, atol=0.05)]
         assert len(g) == (want[:, 1] == y).sum()
+
+
+# --- hybrid follower (fake detector, synthetic pictures) --------------------------
+class FakeDetector:
+    def __init__(self, *a, **k):
+        self.boxes = []
+
+    def people(self, image):
+        return list(self.boxes)
+
+
+def _picture(x, y):
+    """Grey picture with a textured block (the 'climber') at (x, y)."""
+    img = np.full((H, W, 3), 128, np.uint8)
+    rng = np.random.default_rng(0)
+    img[y:y + 200, x:x + 80] = rng.integers(0, 255, (200, 80, 3), dtype=np.uint8)
+    return img
+
+
+@pytest.fixture
+def hybrid(monkeypatch):
+    from wingman.follow import hybrid as hy
+    if not (hy.PROJECT / CFG.hybrid.tracker_model).exists():
+        pytest.skip("VitTrack model file not downloaded")
+    monkeypatch.setattr(hy, "PersonDetector", FakeDetector)
+    return hy.HybridFollower(CFG, W, H, "cpu", tap_box=(260, 380, 340, 580))
+
+
+def test_hybrid_holds_when_no_person_confirms_the_tracker(hybrid):
+    hybrid.update(0.0, _picture(260, 380))          # lock on the tapped box
+    t, state = 0.0, None
+    while t < CFG.hybrid.max_unconfirmed_s + 1.0:   # tracker may follow, detector sees nobody
+        t += 0.1
+        hybrid.update(t, _picture(260, 380))
+    assert hybrid.state in ("LOST", "NEEDS_PILOT") and hybrid.box is None
+
+
+def test_hybrid_never_relocks_far_away_person(hybrid):
+    hybrid.update(0.0, _picture(260, 380))
+    blank = np.full((H, W, 3), 128, np.uint8)
+    hybrid.detector.boxes = [(20, 700, 100, 900)]   # a bystander far from the climber
+    for k in range(1, 40):
+        box, _ = hybrid.update(k * 0.1, blank)
+        assert box is None or abs(box[0] - 20) > 100
