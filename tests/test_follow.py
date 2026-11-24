@@ -172,3 +172,12 @@ def test_hybrid_never_relocks_far_away_person(hybrid):
     for k in range(1, 40):
         box, _ = hybrid.update(k * 0.1, blank)
         assert box is None or abs(box[0] - 20) > 100
+
+
+# --- dataset paths (no personal folders in saved files) ----------------------------
+def test_paths_are_stored_relative_and_resolved_per_computer():
+    from wingman.paths import DATASET_ROOT, dataset_file, to_dataset_relative
+    assert to_dataset_relative(DATASET_ROOT / "p4" / "orange.mp4") == "p4/orange.mp4"
+    assert dataset_file("p4/orange.mp4") == DATASET_ROOT / "p4" / "orange.mp4"
+    # an old absolute path from another computer still finds this computer's copy
+    assert dataset_file("/somewhere/else/wingman dataset/p4/orange.mp4") == DATASET_ROOT / "p4" / "orange.mp4"

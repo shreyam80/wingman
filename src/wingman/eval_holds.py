@@ -26,6 +26,8 @@ import numpy as np
 import pandas as pd
 import yaml
 
+from wingman.paths import dataset_file, to_dataset_relative
+
 PROJECT = Path(__file__).resolve().parents[2]
 
 
@@ -81,7 +83,7 @@ def main():
     tol, min_conf, l2j = cfg["tolerance_torso_lengths"], cfg["min_joint_conf"], cfg["limb_to_joint"]
 
     run = Path(args.run)
-    video = Path(json.loads((run / "meta.json").read_text())["video"])
+    video = dataset_file(json.loads((run / "meta.json").read_text())["video"])
     route = video.stem  # orange / green
     holds = json.load(open(video.parent / f"{route}_routeAnnotation.json"))["holds"]
     boxes = [(h["topLeftCorner"]["x"], h["topLeftCorner"]["y"],
@@ -149,7 +151,7 @@ def main():
         }
 
     summary = {
-        "video": str(video), "config": cfg, "skipped_label_rows": skipped,
+        "video": to_dataset_relative(video), "config": cfg, "skipped_label_rows": skipped,
         "hands": {**group(["lh", "rh"]), "left_right": swaps(("lh", "rh"))},
         "feet": {**group(["lf", "rf"]), "left_right": swaps(("lf", "rf"))},
         "note": "Joints are wrists/ankles, not fingers/toes; hit = within tolerance of the "

@@ -37,6 +37,7 @@ from wingman.follow.detector import DetectorFollower
 from wingman.follow.drone import SimDrone
 from wingman.follow.geometry import WallMap
 from wingman.follow.hybrid import HybridFollower
+from wingman.paths import dataset_file
 from wingman.video_io import open_writer, put_label
 
 
@@ -66,7 +67,7 @@ def load_truth(video_id, wall_map):
 
 def simulate(video_id, cfg, out, device, make_video, max_seconds=None):
     m = pd.read_csv(PROJECT / "data/manifest.csv").set_index("video_id").loc[video_id]
-    video = Path(m.path)
+    video = dataset_file(m.path)
     wall_map = WallMap(video.parent / f"{m.route}_bolt_holes.json")
     truth = load_truth(video_id, wall_map)
     first = min(truth)

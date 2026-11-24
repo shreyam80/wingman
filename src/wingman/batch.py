@@ -17,6 +17,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from wingman.paths import dataset_file
+
 PROJECT = Path(__file__).resolve().parents[2]
 
 
@@ -41,7 +43,7 @@ def main():
         if (out / "meta.json").exists():
             print(f"[{i}/{len(m)}] {row.video_id}: already done, skipping")
             continue
-        cmd = [sys.executable, "-m", "wingman.run_pose", "--video", row.path, "--out", str(out),
+        cmd = [sys.executable, "-m", "wingman.run_pose", "--video", str(dataset_file(row.path)), "--out", str(out),
                "--model", args.model, "--imgsz", str(args.imgsz),
                "--tracker", str(PROJECT / "configs/bytetrack.yaml")]
         if args.no_video:

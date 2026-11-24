@@ -1,5 +1,5 @@
 {
-  "video": "/Users/shreyasmacbookpro2/Downloads/wingman dataset/p2b/orange.mp4",
+  "video": "p2b/orange.mp4",
   "config": {
     "tolerance_torso_lengths": 0.5,
     "min_joint_conf": 0.5,

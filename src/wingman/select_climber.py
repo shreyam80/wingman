@@ -28,6 +28,7 @@ import numpy as np
 import pandas as pd
 
 from wingman.keypoints import KEYPOINT_NAMES, draw_skeleton, kp_columns
+from wingman.paths import dataset_file
 from wingman.video_io import open_writer, put_label
 
 KP_COLS = kp_columns()
@@ -41,7 +42,7 @@ def load(run):
 
 
 def read_frame(meta, frame_idx):
-    cap = cv2.VideoCapture(meta["video"])
+    cap = cv2.VideoCapture(str(dataset_file(meta["video"])))
     for _ in range(frame_idx):
         cap.grab()
     ok, img = cap.read()
@@ -143,7 +144,7 @@ def suggest_links(det, sel, chain_ids, window_s=3.0):
 
 def render(run, meta, sel, chain, draw_min_conf):
     info = meta["video_info"]
-    cap = cv2.VideoCapture(meta["video"])
+    cap = cv2.VideoCapture(str(dataset_file(meta["video"])))
     for _ in range(int(sel.frame_idx.iloc[0])):
         cap.grab()
     writer, _ = open_writer(run / "overlay_selected.mp4", info["fps"], info["width"], info["height"])

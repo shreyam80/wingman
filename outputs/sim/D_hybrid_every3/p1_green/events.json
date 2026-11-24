@@ -1,0 +1,20 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1,
+  "sharpness_ratio": 1.228
+ },
+ {
+  "t_s": 139.12,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.593
+ },
+ {
+  "t_s": 140.8,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.593
+ }
+]

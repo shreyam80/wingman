@@ -1,0 +1,140 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1,
+  "sharpness_ratio": 1.302
+ },
+ {
+  "t_s": 27.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.868
+ },
+ {
+  "t_s": 28.4,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.863
+ },
+ {
+  "t_s": 30.92,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.82
+ },
+ {
+  "t_s": 31.6,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.814
+ },
+ {
+  "t_s": 31.92,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.813
+ },
+ {
+  "t_s": 32.6,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.813
+ },
+ {
+  "t_s": 33.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.811
+ },
+ {
+  "t_s": 33.12,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.808
+ },
+ {
+  "t_s": 34.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.764
+ },
+ {
+  "t_s": 34.6,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.761
+ },
+ {
+  "t_s": 34.72,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.758
+ },
+ {
+  "t_s": 35.12,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.752
+ },
+ {
+  "t_s": 35.72,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.75
+ },
+ {
+  "t_s": 36.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.75
+ },
+ {
+  "t_s": 37.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.738
+ },
+ {
+  "t_s": 37.6,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.736
+ },
+ {
+  "t_s": 38.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.736
+ },
+ {
+  "t_s": 38.52,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.736
+ },
+ {
+  "t_s": 40.72,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.736
+ },
+ {
+  "t_s": 40.8,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.736
+ },
+ {
+  "t_s": 42.12,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.709
+ },
+ {
+  "t_s": 46.2,
+  "event": "needs_pilot",
+  "track_id": 1,
+  "sharpness_ratio": 0.7
+ }
+]

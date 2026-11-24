@@ -13,3 +13,7 @@ outputs/**/*.jpg
 
 .DS_Store
 models/*.onnx
+
+# Working logs (print local folder paths) and large per-frame simulation logs
+outputs/logs/
+outputs/sim/**/log.csv

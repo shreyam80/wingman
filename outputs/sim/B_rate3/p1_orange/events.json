@@ -1,0 +1,68 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1,
+  "sharpness_ratio": 1.28
+ },
+ {
+  "t_s": 48.68,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.853
+ },
+ {
+  "t_s": 49.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.853
+ },
+ {
+  "t_s": 52.68,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.818
+ },
+ {
+  "t_s": 53.36,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.816
+ },
+ {
+  "t_s": 54.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.808
+ },
+ {
+  "t_s": 56.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.8
+ },
+ {
+  "t_s": 59.68,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.775
+ },
+ {
+  "t_s": 60.36,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.775
+ },
+ {
+  "t_s": 61.36,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.775
+ },
+ {
+  "t_s": 63.68,
+  "event": "needs_pilot",
+  "track_id": 1,
+  "sharpness_ratio": 0.775
+ }
+]

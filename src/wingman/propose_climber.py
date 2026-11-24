@@ -34,6 +34,7 @@ import numpy as np
 import pandas as pd
 
 from wingman.video_io import put_label
+from wingman.paths import dataset_file
 
 PROJECT = Path(__file__).resolve().parents[2]
 COLS = ["video_id", "track_id", "links", "confirmed", "reviewer", "notes"]
@@ -117,7 +118,7 @@ def propose_chain(det, max_gap_s=5.0, overlap_s=2.0):
 
 def review_sheet(run, det, chain, path, n_tiles=6):
     """6 frames across the video: proposed climber green with its id, others grey."""
-    meta_video = json.loads((run / "meta.json").read_text())["video"]
+    meta_video = str(dataset_file(json.loads((run / "meta.json").read_text())["video"]))
     frames = pd.read_csv(run / "frames.csv")
     t_of = dict(zip(frames.frame_idx, frames.t_s))
     want = set(np.linspace(frames.frame_idx.min(), frames.frame_idx.max(), n_tiles).astype(int))

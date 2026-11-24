@@ -1,0 +1,68 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1,
+  "sharpness_ratio": 1.277
+ },
+ {
+  "t_s": 29.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.809
+ },
+ {
+  "t_s": 30.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.809
+ },
+ {
+  "t_s": 34.92,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.748
+ },
+ {
+  "t_s": 35.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.748
+ },
+ {
+  "t_s": 37.4,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.735
+ },
+ {
+  "t_s": 37.6,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.735
+ },
+ {
+  "t_s": 53.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.695
+ },
+ {
+  "t_s": 54.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.695
+ },
+ {
+  "t_s": 56.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.688
+ },
+ {
+  "t_s": 56.8,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.687
+ }
+]

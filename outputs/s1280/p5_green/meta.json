@@ -1,5 +1,5 @@
 {
-  "video": "/Users/shreyasmacbookpro2/Downloads/wingman dataset/p5/green.mp4",
+  "video": "p5/green.mp4",
   "video_info": {
     "width": 720,
     "height": 1280,
@@ -18,7 +18,7 @@
   "imgsz": 1280,
   "box_conf_min": 0.25,
   "device": "mps",
-  "tracker_file": "/Users/shreyasmacbookpro2/CIS Senior Design Docs/wingman/configs/bytetrack.yaml",
+  "tracker_file": "bytetrack.yaml",
   "tracker_settings": {
     "tracker_type": "bytetrack",
     "track_high_thresh": 0.25,

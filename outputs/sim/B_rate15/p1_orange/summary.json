@@ -1,0 +1,23 @@
+{
+  "video_id": "p1_orange",
+  "seconds": 88.5,
+  "frames_with_truth": 2210,
+  "climber_fully_in_frame": 0.8964,
+  "climber_mostly_in_frame": 0.9122,
+  "climber_out_of_frame": 0.0,
+  "median_offset_frac": 0.049,
+  "p95_offset_frac": 0.374,
+  "locked_fraction_of_ticks": 0.6514,
+  "lost_events": 16,
+  "relocks": 15,
+  "needs_pilot_events": 1,
+  "needs_pilot_realistic": 1,
+  "realistic_frames_frac": 1.0,
+  "fully_in_frame_realistic": 0.8964,
+  "wrong_way_frac": 0.0,
+  "wrong_person_ticks": 0,
+  "max_speed_mps": 0.275,
+  "max_accel_mps2": 0.675,
+  "median_detect_ms": 11.9,
+  "sim_x_real_time": 4.12
+}

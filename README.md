@@ -14,7 +14,9 @@ uv pip install --python .venv/bin/python -e .
 ```
 
 The dataset is The Way Up (Zenodo 15196867, CC BY 4.0 – credit the authors). It is
-expected, unmodified, at `~/Downloads/wingman dataset`. Use the small `route.mp4`
+expected, unmodified, at `~/Downloads/wingman dataset`.
+Saved files store video paths relative to that folder (e.g. `p4/orange.mp4`). If your
+copy is elsewhere, run `export WINGMAN_DATASET="/path/to/wingman dataset"` first. Use the small `route.mp4`
 files (720×1280, 25 FPS); annotations are in their frame numbers. Ignore `*_large.mp4`.
 
 ## Run

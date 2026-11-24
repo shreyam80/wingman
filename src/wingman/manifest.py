@@ -13,6 +13,7 @@ import hashlib
 from pathlib import Path
 
 from wingman.video_io import video_info
+from wingman.paths import to_dataset_relative
 
 SOURCE = "The Way Up (Zenodo record 15196867, DOI 10.5281/zenodo.15196867, v1.0.0)"
 LICENSE = "CC-BY-4.0 (attribution required; checked via Zenodo API 2026-10-28)"
@@ -45,7 +46,7 @@ def main():
                 # p2a / p2b are the same person recorded twice (see participant_form_data.csv)
                 "participant_group": folder.name.rstrip("ab"),
                 "route": route,
-                "path": str(video),
+                "path": to_dataset_relative(video),  # relative: works on any computer
                 "sha256": sha256(video),
                 "width": info["width"], "height": info["height"],
                 "fps": info["fps"], "frame_count": info["frame_count"],

@@ -29,6 +29,7 @@ import yaml
 from ultralytics import YOLO
 
 from wingman.keypoints import KEYPOINT_NAMES, draw_skeleton, kp_columns
+from wingman.paths import to_dataset_relative
 from wingman.video_io import open_writer, put_label, video_info
 
 TRACK_COLORS = [(0, 255, 0), (255, 0, 255), (0, 255, 255), (255, 255, 0), (128, 128, 255)]
@@ -124,11 +125,11 @@ def main():
     frm_f.close()
 
     meta = {
-        "video": str(video), "video_info": info,
+        "video": to_dataset_relative(video), "video_info": info,
         "excerpt": {"start_s": args.start, "end_s": args.end, "start_frame": start_f,
                     "end_frame_exclusive": start_f + n_done, "frames_processed": n_done},
         "model": args.model, "imgsz": args.imgsz, "box_conf_min": args.conf, "device": args.device,
-        "tracker_file": args.tracker, "tracker_settings": yaml.safe_load(open(args.tracker)),
+        "tracker_file": Path(args.tracker).name,  # file name only: no local folders "tracker_settings": yaml.safe_load(open(args.tracker)),
         "versions": {"ultralytics": ultralytics.__version__, "torch": torch.__version__,
                      "opencv": cv2.__version__, "python": platform.python_version()},
         "machine": {"platform": platform.platform(), "processor": platform.processor()},

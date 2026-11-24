@@ -1,0 +1,20 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1,
+  "sharpness_ratio": 1.302
+ },
+ {
+  "t_s": 44.4,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.701
+ },
+ {
+  "t_s": 46.6,
+  "event": "needs_pilot",
+  "track_id": 1,
+  "sharpness_ratio": 0.701
+ }
+]

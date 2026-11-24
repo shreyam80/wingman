@@ -18,6 +18,7 @@ import numpy as np
 import pandas as pd
 
 from wingman.keypoints import KEYPOINT_NAMES
+from wingman.paths import dataset_file
 
 results = []
 
@@ -129,7 +130,7 @@ def main():
         sys.exit(1 if fails else 0)
     # Compare a few overlay frames with the original, in a band of rows the drawings
     # rarely cover. Small differences = video compression; large = wrong frame/offset.
-    src = cv2.VideoCapture(meta["video"])
+    src = cv2.VideoCapture(str(dataset_file(meta["video"])))
     ovl = cv2.VideoCapture(str(run / "overlay_all.mp4"))
     start = meta["excerpt"]["start_frame"]
     for _ in range(start):

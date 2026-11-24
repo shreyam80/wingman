@@ -1,0 +1,134 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1,
+  "sharpness_ratio": 1.113
+ },
+ {
+  "t_s": 22.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.894
+ },
+ {
+  "t_s": 22.52,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.895
+ },
+ {
+  "t_s": 24.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.895
+ },
+ {
+  "t_s": 25.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.895
+ },
+ {
+  "t_s": 38.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.895
+ },
+ {
+  "t_s": 40.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.895
+ },
+ {
+  "t_s": 45.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.85
+ },
+ {
+  "t_s": 46.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.85
+ },
+ {
+  "t_s": 49.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.835
+ },
+ {
+  "t_s": 51.52,
+  "event": "needs_pilot",
+  "track_id": 1,
+  "sharpness_ratio": 0.835
+ },
+ {
+  "t_s": 52.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.835
+ },
+ {
+  "t_s": 54.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 55.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 55.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 57.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 58.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 60.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 62.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 63.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 64.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ },
+ {
+  "t_s": 67.0,
+  "event": "needs_pilot",
+  "track_id": 1,
+  "sharpness_ratio": 0.794
+ }
+]

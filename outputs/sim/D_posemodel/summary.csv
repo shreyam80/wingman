@@ -1,0 +1,7 @@
+video_id,seconds,frames_with_truth,climber_fully_in_frame,climber_mostly_in_frame,climber_out_of_frame,median_offset_frac,p95_offset_frac,locked_fraction_of_ticks,lost_events,relocks,needs_pilot_events,needs_pilot_realistic,realistic_frames_frac,fully_in_frame_realistic,wrong_way_frac,wrong_person_ticks,max_speed_mps,max_accel_mps2,median_detect_ms,sim_x_real_time
+p1_orange,88.5,2210,1.0,1.0,0.0,0.033,0.076,0.9695,6,6,0,0,0.7086,1.0,0.0,0,0.296,0.725,21.4,2.97
+p1_green,188.3,4693,1.0,1.0,0.0,0.029,0.06,0.9782,19,19,0,0,0.306,1.0,0.0,0,0.272,0.7,20.7,3.46
+p3_orange,38.7,966,1.0,1.0,0.0,0.051,0.094,0.9147,6,6,0,0,0.6284,1.0,0.0,0,0.392,0.725,20.5,3.71
+p3_green,51.2,1281,1.0,1.0,0.0,0.046,0.098,0.9591,6,6,0,0,0.4871,1.0,0.0,0,0.337,0.8,19.5,3.85
+p5_orange,59.1,1474,1.0,1.0,0.0,0.043,0.08,0.8731,15,14,0,0,0.5936,1.0,0.0,0,0.28,0.8,19.3,4.03
+p5_green,93.0,2310,1.0,1.0,0.0,0.027,0.064,0.9108,17,17,1,1,0.7732,1.0,0.0,0,0.309,0.7,19.4,3.96

@@ -1,0 +1,164 @@
+[
+ {
+  "t_s": 0.0,
+  "event": "lock",
+  "track_id": 1,
+  "sharpness_ratio": 1.273
+ },
+ {
+  "t_s": 20.32,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.808
+ },
+ {
+  "t_s": 20.4,
+  "event": "relock",
+  "track_id": 32,
+  "sharpness_ratio": 0.807
+ },
+ {
+  "t_s": 21.92,
+  "event": "lost",
+  "track_id": 32,
+  "sharpness_ratio": 0.806
+ },
+ {
+  "t_s": 22.0,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.806
+ },
+ {
+  "t_s": 25.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.746
+ },
+ {
+  "t_s": 25.2,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.741
+ },
+ {
+  "t_s": 26.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.735
+ },
+ {
+  "t_s": 26.2,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.734
+ },
+ {
+  "t_s": 36.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.665
+ },
+ {
+  "t_s": 36.92,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.659
+ },
+ {
+  "t_s": 37.0,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.658
+ },
+ {
+  "t_s": 37.2,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.657
+ },
+ {
+  "t_s": 38.32,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.632
+ },
+ {
+  "t_s": 38.52,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.624
+ },
+ {
+  "t_s": 39.12,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.613
+ },
+ {
+  "t_s": 39.6,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.611
+ },
+ {
+  "t_s": 39.92,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.61
+ },
+ {
+  "t_s": 40.32,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.61
+ },
+ {
+  "t_s": 42.72,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.609
+ },
+ {
+  "t_s": 42.92,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.606
+ },
+ {
+  "t_s": 43.4,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.601
+ },
+ {
+  "t_s": 43.6,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.597
+ },
+ {
+  "t_s": 46.52,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.564
+ },
+ {
+  "t_s": 46.92,
+  "event": "relock",
+  "track_id": 1,
+  "sharpness_ratio": 0.563
+ },
+ {
+  "t_s": 48.72,
+  "event": "lost",
+  "track_id": 1,
+  "sharpness_ratio": 0.556
+ },
+ {
+  "t_s": 48.92,
+  "event": "relock",
+  "track_id": 43,
+  "sharpness_ratio": 0.551
+ }
+]
